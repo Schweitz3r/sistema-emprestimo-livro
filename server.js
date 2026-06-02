@@ -4,11 +4,14 @@ import { fastify } from 'fastify';
 // Não esquecer de colocar a extensão do arquivo
 import { DatabaseMemory } from './database-memory.js';
 
+import { DatabasePostgreSQL } from './database-postgresql.js'
+
 // instanciar o meu servidor de aplicação
 const server = fastify();
 
 // instanciar o banco de dados
 const database = new DatabaseMemory();
+const databasePostgres = new DatabasePostgreSQL();
 
 // criar um endpoint default (padrão)
 // testar se minha aplicação está funcionando (ar)
@@ -25,7 +28,7 @@ server.get('/', () => {
 // listar livros
 server.get('/books', () => {
     // retorna a listagem dos livros
-    return database.list();
+    return databasePostgres.list();
 })
 // inserir livros
 // request -> receber os dados enviados pelo cliente
@@ -52,7 +55,7 @@ server.post('/books', (request, response) => {
     }
 
     // verifricar se existe duplicidade
-    const existingBook = database.list().find((book) => {
+    const existingBook = databasePostgres.list().find((book) => {
         
         return (
             book.title.toLowerCase() === title.toLowerCase() &&
@@ -67,7 +70,7 @@ server.post('/books', (request, response) => {
     }
 
     // nome da coluna no banco de dados: dados enviados requisição
-    database.create({
+    databasePostgres.create({
         title: title,
         author: author,
         year: Number(year),
