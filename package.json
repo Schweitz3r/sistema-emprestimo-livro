@@ -1,0 +1,21 @@
+{
+  "name": "sistema-emprestimo-livro",
+  "version": "1.0.0",
+  "description": "Este é um sistema responsável por controlar livros de uma biblioteca",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "livros",
+    "API",
+    "NODEJS"
+  ],
+  "author": "gustavoandrade",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^5.8.4"
+  }
+}

@@ -1,0 +1,42 @@
+GET http://localhost:3000/books
+
+###
+
+POST http://localhost:3000/books
+Content-Type: application/json
+
+{
+    "title": "Dom Casmurro",
+    "author": "Machado de Assis",
+    "year": 1899,
+    "category": "Romance"
+}
+
+###
+
+PUT http://localhost:3000/books/52d646de-66d4-4cc0-90db-251909b763fa
+Content-Type: application/json
+
+{
+    "title": "Dom Casmurro",
+    "author": "Machado de Assis",
+    "year": 1899,
+    "category": "Romance"
+}
+
+###
+
+DELETE http://localhost:3000/books/9b3bac32-3d16-48de-a7de-a5f79f654130
+
+###
+
+PATCH http://localhost:3000/books/58574e3e-3c5e-4d6c-8214-bd62796b330e/borrow
+Content-Type: application/json
+
+{
+    "name": "Marta"
+}
+
+###
+
+PATCH http://localhost:3000/books/58574e3e-3c5e-4d6c-8214-bd62796b330e/return
